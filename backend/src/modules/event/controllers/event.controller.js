@@ -145,14 +145,12 @@ class EventController
                 });
             }
 
-            // Merge existing values with new ones
             const startDate = req.body.startDate || existingEvent.startDate;
             const endDate = req.body.endDate || existingEvent.endDate;
             const time = req.body.time || existingEvent.time;
 
-            // Check overlapping events
             const overlappingEvent = await Event.findOne({
-                _id: { $ne: eventId }, // exclude current event
+                _id: { $ne: eventId },
                 organizer: req.user.sub,
                 startDate: { $lte: new Date(endDate) },
                 endDate: { $gte: new Date(startDate) },
