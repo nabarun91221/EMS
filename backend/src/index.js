@@ -2,16 +2,16 @@ import "dotenv/config";
 
 import express from "express";
 import connectMongoDb from "./configs/mongoDb.config.js";
-import cors from "cors"
-import cookieParser from "cookie-parser"
+import cors from "cors";
+import cookieParser from "cookie-parser";
 
 import AuthRouter from './modules/auth/auth.route.js';
 import UserRouter from './modules/user/routes/user.route.js'
 import EventRouter from "./modules/event/routes/event.route.js";
-import EventRegistrationRouter from "./modules/registration/routes/registration.route.js"
+import EventRegistrationRouter from "./modules/registration/routes/registration.route.js";
 
 const App = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT
 
 const BaseUrl = "/api"
 
